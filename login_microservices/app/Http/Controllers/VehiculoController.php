@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Facades\Log; // Para registrar errores
-use Carbon\Carbon; // Necesario para after_or_equal:today si se usa
+use Illuminate\Support\Facades\Log; 
+use Carbon\Carbon; 
 
 class VehiculoController extends Controller
 {

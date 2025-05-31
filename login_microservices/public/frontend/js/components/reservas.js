@@ -247,7 +247,7 @@ const Reservas = {
             const reservaResponse = await fetch(`/api/reservas/${id}`);
             const reserva = await reservaResponse.json();
 
-            // Primero actualizamos el estado del vehículo
+           
             const vehiculoResponse = await fetch(`/api/vehiculos/${reserva.vehiculo_id}`, {
                 method: 'PUT',
                 headers: {
@@ -261,7 +261,7 @@ const Reservas = {
                 throw new Error(errorData.message || 'Error al actualizar el estado del vehículo');
             }
 
-            // Luego cancelamos la reserva
+            
             const cancelarResponse = await fetch(`/api/reservas/${id}`, {
                 method: 'DELETE'
             });
@@ -273,7 +273,7 @@ const Reservas = {
 
             Utils.mostrarMensaje('Reserva cancelada exitosamente', 'exito');
             
-            // Actualizamos tanto la lista de reservas como la de vehículos
+            
             await this.cargarReservas();
             if (typeof Vehiculos !== 'undefined' && Vehiculos.cargarVehiculos) {
                 await Vehiculos.cargarVehiculos();
@@ -318,7 +318,7 @@ const Reservas = {
 
             Utils.mostrarMensaje('Devolución registrada exitosamente. El vehículo está disponible.', 'exito');
             
-            // Actualizamos tanto la lista de reservas como la de vehículos
+            
             await this.cargarReservas();
             if (typeof Vehiculos !== 'undefined' && Vehiculos.cargarVehiculos) {
                 await Vehiculos.cargarVehiculos();
