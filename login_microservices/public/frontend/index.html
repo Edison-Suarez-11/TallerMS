@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Alquiler de Vehículos</title>
+    <link rel="stylesheet" href="/frontend/css/normalize.css">
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">Alquiler de Vehículos</div>
+            <div class="nav-links">
+                <a href="#vehiculos" data-section="vehiculos" class="active">Vehículos</a>
+                <a href="#clientes" data-section="clientes">Clientes</a>
+                <a href="#reservas" data-section="reservas">Reservas</a>
+                <a href="#buscar-disponibles" data-section="buscar-disponibles">Buscar Disponibles</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="vehiculos" class="section">
+            <div class="card">
+                <h2>Gestión de Vehículos</h2>
+                <button class="btn btn-primary" data-action="agregar-vehiculo">
+                    <span>Agregar Vehículo</span>
+                </button>
+                <div class="vehicle-grid" id="lista-vehiculos"></div>
+            </div>
+        </section>
+
+        <section id="clientes" class="section hidden">
+            <div class="card">
+                <h2>Gestión de Clientes</h2>
+                <button class="btn btn-primary" data-action="agregar-cliente">
+                    <span>Agregar Cliente</span>
+                </button>
+                <div class="client-list" id="lista-clientes"></div>
+            </div>
+        </section>
+
+        <section id="reservas" class="section hidden">
+            <div class="card">
+                <h2>Gestión de Reservas</h2>
+                <button class="btn btn-primary" data-action="agregar-reserva">
+                    <span>Nueva Reserva</span>
+                </button>
+                <div class="booking-form" id="lista-reservas"></div>
+            </div>
+        </section>
+
+        <section id="buscar-disponibles" class="section hidden">
+            <div class="card">
+                <h2>Buscar Vehículos Disponibles</h2>
+                <div class="busqueda-disponibles-card">
+                    <h3>Consultar Vehículos Disponibles por Fecha</h3>
+                    <form id="form-buscar-disponibles" class="formulario-inline">
+                        <div class="form-group">
+                            <label for="fecha_inicio_busqueda">Desde:</label>
+                            <input type="date" id="fecha_inicio_busqueda" name="fecha_inicio_busqueda" 
+                                   class="form-input-sm" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha_fin_busqueda">Hasta:</label>
+                            <input type="date" id="fecha_fin_busqueda" name="fecha_fin_busqueda" 
+                                   class="form-input-sm" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">
+                            <span>Buscar Disponibles</span>
+                        </button>
+                    </form>
+                    <div id="lista-vehiculos-disponibles-rango" class="vehicle-grid"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar">&times;</button>
+            <div id="formulario-container"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/frontend/js/config.js"></script>
+    <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/utils.js"></script>
+    <script src="/frontend/js/components/vehiculos.js"></script>
+    <script src="/frontend/js/components/clientes.js"></script>
+    <script src="/frontend/js/components/reservas.js"></script>
+    <script src="/frontend/js/app.js"></script>
+</body>
+</html> 
